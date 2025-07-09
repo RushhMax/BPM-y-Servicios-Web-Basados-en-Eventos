@@ -432,12 +432,10 @@
         <connectors xmi:type="process:Connector" xmi:id="_GUJqQC27Eeyv2p0mKkoYjg" name="Retrieve answer" definitionId="connector-rabbitmq" event="ON_ENTER" definitionVersion="1.0.0">
           <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_GUJqQS27Eeyv2p0mKkoYjg" definitionId="connector-rabbitmq" version="1.0.0" modelVersion="8">
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_GUJqQi27Eeyv2p0mKkoYjg" key="host">
-              <expression xmi:type="expression:Expression" xmi:id="_GUJqQy27Eeyv2p0mKkoYjg" name="rabbitMQhost" content="rabbitMQhost" type="TYPE_PARAMETER" returnTypeFixed="true">
-                <referencedElements xmi:type="parameter:Parameter" xmi:id="_H1K_sC89EeyIV6Vt-mnXAA" name="rabbitMQhost" typeClassname="java.lang.String"/>
-              </expression>
+              <expression xmi:type="expression:Expression" xmi:id="_GUJqQy27Eeyv2p0mKkoYjg" name="localhost" content="localhost" returnTypeFixed="true"/>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_GUJqRC27Eeyv2p0mKkoYjg" key="queueName">
-              <expression xmi:type="expression:Expression" xmi:id="_GUJqRS27Eeyv2p0mKkoYjg" name="answers" content="answers" returnTypeFixed="true"/>
+              <expression xmi:type="expression:Expression" xmi:id="_GUJqRS27Eeyv2p0mKkoYjg" name="orderQueue" content="orderQueue" returnTypeFixed="true"/>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_GUJqRi27Eeyv2p0mKkoYjg" key="message">
               <expression xmi:type="expression:Expression" xmi:id="_GUJqRy27Eeyv2p0mKkoYjg" name="" content="" returnTypeFixed="true"/>

@@ -266,25 +266,21 @@
         <connectors xmi:type="process:Connector" xmi:id="_tAaYIC2ZEeyv2p0mKkoYjg" name="Forward request" definitionId="connector-rabbitmq" event="ON_ENTER" definitionVersion="1.0.0">
           <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_tAaYIS2ZEeyv2p0mKkoYjg" definitionId="connector-rabbitmq" version="1.0.0" modelVersion="8">
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_tAaYIi2ZEeyv2p0mKkoYjg" key="host">
-              <expression xmi:type="expression:Expression" xmi:id="_tAaYIy2ZEeyv2p0mKkoYjg" name="rabbitMQhost" content="rabbitMQhost" type="TYPE_PARAMETER" returnTypeFixed="true">
-                <referencedElements xmi:type="parameter:Parameter" xmi:id="_dfam8C8vEeyj37tDnfSNiw" name="rabbitMQhost" typeClassname="java.lang.String"/>
-              </expression>
+              <expression xmi:type="expression:Expression" xmi:id="_tAaYIy2ZEeyv2p0mKkoYjg" name="localhost" content="localhost" returnTypeFixed="true"/>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_tAaYJC2ZEeyv2p0mKkoYjg" key="queueName">
-              <expression xmi:type="expression:Expression" xmi:id="_tAaYJS2ZEeyv2p0mKkoYjg" name="requests" content="requests" returnTypeFixed="true"/>
+              <expression xmi:type="expression:Expression" xmi:id="_tAaYJS2ZEeyv2p0mKkoYjg" name="orderQueue" content="orderQueue" returnTypeFixed="true"/>
             </parameters>
             <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_tAaYJi2ZEeyv2p0mKkoYjg" key="message">
-              <expression xmi:type="expression:Expression" xmi:id="_tAaYJy2ZEeyv2p0mKkoYjg" name="message()" content="uuid + &quot;;&quot; + item + &quot;;&quot; + quantity" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
-                <referencedElements xmi:type="process:Data" xmi:id="_tAaYKC2ZEeyv2p0mKkoYjg" name="item" dataType="_Hlv1AS2WEey4FNoAupUkCg"/>
-                <referencedElements xmi:type="process:Data" xmi:id="_tAaYKS2ZEeyv2p0mKkoYjg" name="uuid" dataType="_Hlv1AS2WEey4FNoAupUkCg"/>
-                <referencedElements xmi:type="process:Data" xmi:id="_tAaYKi2ZEeyv2p0mKkoYjg" name="quantity" dataType="_Hlv0_i2WEey4FNoAupUkCg"/>
+              <expression xmi:type="expression:Expression" xmi:id="_tAaYJy2ZEeyv2p0mKkoYjg" name="quotationData.toJson()" content="&quot;{\&quot;customer\&quot;: \&quot;&quot; + customerName + &quot;\&quot;, \&quot;product\&quot;: \&quot;&quot; + productName + &quot;\&quot;, \&quot;quantity\&quot;: &quot; + quantity + &quot;, \&quot;price\&quot;: &quot; + price + &quot;}&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnTypeFixed="true">
+                <referencedElements xmi:type="process:Data" xmi:id="_W53-sFx3EfCIgJJzCUlBwQ" name="quantity" dataType="_Hlv0_i2WEey4FNoAupUkCg"/>
               </expression>
             </parameters>
           </configuration>
           <outputs xmi:type="expression:Operation" xmi:id="_tAaYKy2ZEeyv2p0mKkoYjg">
             <leftOperand xmi:type="expression:Expression" xmi:id="_tAaYLC2ZEeyv2p0mKkoYjg"/>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_tAaYLS2ZEeyv2p0mKkoYjg" name="receivedMessage" content="receivedMessage" type="CONNECTOR_OUTPUT_TYPE">
-              <referencedElements xmi:type="definition:Output" xmi:id="_tAaYLi2ZEeyv2p0mKkoYjg" name="receivedMessage" type="java.lang.String"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_tAaYLS2ZEeyv2p0mKkoYjg" name="newScript()" content="receivedMessage" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="definition:Output" xmi:id="_JYhSgFx3EfCIgJJzCUlBwQ" name="receivedMessage" type="java.lang.String"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_tAaYLy2ZEeyv2p0mKkoYjg" type="ASSIGNMENT"/>
           </outputs>
